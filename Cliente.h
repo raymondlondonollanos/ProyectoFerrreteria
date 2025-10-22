@@ -16,16 +16,19 @@ namespace cliente
 		char* m_nombres{ nullptr };
 		char* m_num_cedula{ nullptr };
 		std::size_t m_num_telefono{};
+		std::uint16_t m_tamano_nomb{};
+		std::uint16_t m_tamano_cedula{};
 		std::uint16_t m_id_cliente{};
 		tipoSexo::TipoSexo m_sexo{};
-		std::uint16_t m_tamano_nomb{};
+		
 		
 
 	public:
 
 		Cliente() = default;
 		Cliente(char* nombres, char* num_cedula, std::size_t num_telefono, 
-			std::uint16_t id_cliente, tipoSexo::TipoSexo sexo);
+			std::uint16_t tamano_nombre, std::uint16_t tamano_cedula,
+			tipoSexo::TipoSexo sexo , std::uint16_t id_cliente);
 
 		//constructor de copias
 		Cliente(const Cliente& copy);

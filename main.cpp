@@ -17,6 +17,7 @@ int main()
 	std::cout << "\nTamano objeto cliente, nombre puntero " << sizeof(c1, c1.m_nombres) << " byte";
 	std::cout << "\nTamano objeto cliente, telefono size_T " << sizeof(c1, c1.m_num_telefono) << " byte";
 	std::cout << "\nTamano objeto cliente, sexo enum uint8_t" << sizeof(c1, c1.m_sexo) << " byte";
+	std::cout << "\nTamano objeto cliente, cedua size_t" << sizeof(c1, c1.m_tamano_cedula) << " byte";
 
 	char* num{ new char[]{"hola"}};
 

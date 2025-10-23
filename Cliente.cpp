@@ -53,6 +53,56 @@ namespace cliente
 
 	}
 
+	Cliente& Cliente::operator =(Cliente&& move)noexcept
+	{
+		if (this == &move)
+		{
+			return *this;
+		}
+		//Primer verficamos que los punteros no posean datos y reestablecemos su tamano y lo que almaena
+		delete[] m_nombres;
+		m_nombres = nullptr;
+		m_tamano_nomb = 0;
+
+		delete[] m_num_cedula;
+		m_num_cedula = nullptr;
+		m_tamano_cedula = 0;
+
+		//movemos los recurso no los copiamos
+		m_nombres = move.m_nombres;
+		m_tamano_nomb = move.m_tamano_nomb;
+
+		m_num_cedula = move.m_num_cedula;
+		m_tamano_cedula = move.m_tamano_cedula;
+
+		//establecemos a nullptr los punteros para no tener dos apuntadores a la misma memoria 
+		move.m_nombres = nullptr;
+		move.m_num_cedula = nullptr;
+
+
+		m_num_telefono = move.m_num_telefono;
+		m_sexo = move.m_sexo;
+		m_id_cliente = move.m_id_cliente;
+
+		move.m_num_telefono = 0;
+		move.m_sexo = tipoSexo::TipoSexo::indefinido;
+		move.m_id_cliente = 0;
+
+		return *this;
+	}
+
+	Cliente::~Cliente()
+	{
+		if (m_nombres) {
+			delete[] m_nombres;
+			m_nombres = nullptr;
+		}
+		if (m_num_cedula) {
+			delete[] m_num_cedula;
+			m_num_cedula = nullptr;
+		}
+	}
+
 	void Cliente::deep_coopy(const Cliente& copy)
 	{
 		//reestablecer los valores de los punteros y valores del array a cero para 
@@ -97,7 +147,7 @@ namespace cliente
 
 		//ahora copiamos los otros datos que no son punteros 
 		m_num_telefono = copy.m_num_telefono;
-		tipoSexo::TipoSexo m_sexo = copy.m_sexo;
+		m_sexo = copy.m_sexo;
 		m_id_cliente = copy.m_id_cliente;
 
 	}

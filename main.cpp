@@ -47,6 +47,10 @@ int main()
 	}
 
 	//std::cout << "Tamano del enum std::uint8_t " << sizeof(tipoSexo::TipoSexo);
+
+
+
+
 	
 	return 0;
 }

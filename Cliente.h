@@ -51,9 +51,13 @@ namespace cliente
 			return m_nombres[indice];
 		}
 
-		Cliente(Cliente&& move);
+		Cliente(Cliente&& move)noexcept;
 
-		Cliente& operator =(Cliente&& move);
+		Cliente& operator =(Cliente&& move)noexcept;
+
+		~Cliente();
+
+		void deep_coopy(const Cliente& copy);
 
 	};
 

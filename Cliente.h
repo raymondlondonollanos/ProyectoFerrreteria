@@ -5,6 +5,7 @@
 #include <cstdint>
 #include "TipoSexo.h"
 #include <cassert>
+#include <optional>
 
 namespace cliente
 {
@@ -59,8 +60,13 @@ namespace cliente
 
 		void deep_coopy(const Cliente& copy);
 
+		void mostrar_datos()const;
+
+		friend std::optional<cliente::Cliente> validacionCliente();
+
 	};
 
+	std::optional<cliente::Cliente> validacionCliente();
 }
 
 #endif // !CLIENTE_H

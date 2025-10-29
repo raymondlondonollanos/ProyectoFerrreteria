@@ -1,10 +1,13 @@
 #include <iostream>
 #include "TipoSexo.h"
 #include "Cliente.h"
+#include <cstddef>
+#include <cstdint>
+#include <optional>
 
 int main()
 {
-	tipoSexo::TipoSexo sx{ tipoSexo::TipoSexo::femenino };
+	/*tipoSexo::TipoSexo sx{ tipoSexo::TipoSexo::femenino };
 
 	std::cout << " sexo " << tipoSexo::tipo_sexo_persona(sx);
 
@@ -44,13 +47,27 @@ int main()
 		std::cout << num[i];
 		
 
-	}
+	}*/
 
 	//std::cout << "Tamano del enum std::uint8_t " << sizeof(tipoSexo::TipoSexo);
 
 
+	std::optional<cliente::Cliente> prue{ cliente::validacionCliente() };
 
+	cliente::Cliente cl;
 
+	if (prue)
+	{
+		std::cout << "\nno null";
+		cl.m_tamano_cedula = prue->m_tamano_cedula;
+		std::cout << "\ntamano de cedula " << cl.m_tamano_cedula;
+		
+	}
+	else
+	{
+		
+			std::cout << "nulo";
+	}
 	
 	return 0;
 }
